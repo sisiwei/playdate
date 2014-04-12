@@ -17,6 +17,11 @@ h1 {
   padding: 60px 0 10px;
   margin: 0; }
 
+h2 {
+  background-color: #ccc;
+  padding: 10px 15px;
+}
+
 h5 {
   margin: 0;
   font-weight: normal;
