@@ -48,9 +48,7 @@
 # end
 
 set :css_dir, 'stylesheets'
-
 set :js_dir, 'javascripts'
-
 set :images_dir, 'images'
 
 # Build-specific configuration
@@ -59,19 +57,25 @@ configure :build do
   # activate :minify_css
 
   # Minify Javascript on build
-  activate :minify_javascript
+  # activate :minify_javascript
 
   # Enable cache buster
   # activate :asset_hash
 
   # Use relative URLs
-  # activate :relative_assets
+  activate :relative_assets
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 
-  activate :s3_sync do |s3_sync|
-    s3_sync.bucket                     = 'games.sisiwei.com' # The name of the S3 bucket you are targetting. This is globally unique.
-    s3_sync.region                     = 'us-east-1'     # The AWS region for your bucket.
+  activate :sync do |sync|
+    sync.fog_provider = 'AWS' # Your storage provider
+    sync.fog_directory = 'games.sisiwei.com' # Your bucket name
+    sync.fog_region = 'us-east-1' # The region your storage bucket is in (eg us-east-1, us-west-1, eu-west-1, ap-southeast-1 )
+    sync.aws_access_key_id = 'AKIAJN7C2EPTK3BSWKSQ' # Your Amazon S3 access key
+    sync.aws_secret_access_key = '64oalQ4qL6lF16XlzeILm6dVcH6Sz8Bcd6D8pgyT' # Your Amazon S3 access secret
+    sync.existing_remote_files = 'keep' # What to do with your existing remote files? ( keep or delete )
+    # sync.gzip_compression = false # Automatically replace files with their equivalent gzip compressed version
+    sync.after_build = false # Disable sync to run after Middleman build ( defaults to true )
   end
 end

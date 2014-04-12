@@ -2,19 +2,26 @@
 
 body {
   background: #d4d4d4 url("../images/background.png");
-  text-align: center;
-  font-family: sans-serif; }
+  width: 80%;
+  margin: 0 auto;
+  font-family: 'Gochi Hand', cursive, sans-serif; 
+}
 
 h1 {
   color: rgba(0, 0, 0, .3);
   font-weight: bold;
-  font-size: 32px;
+  font-size: 50px;
   letter-spacing: -1px;
   text-transform: uppercase;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
-  background: url("../images/middleman.png") no-repeat center 100px;
-  padding: 350px 0 10px;
+  text-shadow: 0 1px 0 rgba(45, 45, 45, 0.5);
+  padding: 60px 0 10px;
   margin: 0; }
+
+h5 {
+  margin: 0;
+  font-weight: normal;
+  color: #999;
+}
 
 .doc {
   font-size: 14px;
@@ -33,7 +40,9 @@ h1 {
 
 .welcome {
   -webkit-animation-name: welcome;
-  -webkit-animation-duration: .9s; }
+  -webkit-animation-duration: .9s; 
+  border-bottom: 1px solid #E6E6E6;
+  padding: 0 0 16px; }
 
 @-webkit-keyframes welcome {
   from {
