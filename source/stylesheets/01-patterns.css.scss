@@ -1,5 +1,5 @@
 .patterns {
-	width: 300px;
+	width: 330px;
 	margin: 0 auto;
 
 	.circle {
@@ -8,5 +8,13 @@
 		border-radius: 60px;
 		float: left;
 		margin: 10px;
+		border: 5px solid #D6D6D6;
+		-webkit-transition : border 500ms ease-out; 
+		-moz-transition : border 500ms ease-out;
+		-o-transition : border 500ms ease-out;
+	}
+
+	.circle.show {
+		border: 5px solid white;
 	}
 }
