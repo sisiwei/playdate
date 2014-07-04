@@ -7,13 +7,18 @@
 		height: 80px;
 		border-radius: 60px;
 		float: left;
-		margin: 15px;
+		margin: 10px;
+		border: 5px solid white;
 		-webkit-transition : border 500ms ease-out; 
 		-moz-transition : border 500ms ease-out;
 		-o-transition : border 500ms ease-out;
 	}
 
+	.circle:hover {
+		border: 5px solid #ddd;
+	}
+
 	.circle.show {
-		border: 5px solid white;
+		border: 5px solid black;
 	}
 }
