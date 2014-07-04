@@ -1,6 +1,6 @@
 var currPattern = [];
 var playerScore = 0;
-var colors = ['orange', 'white', 'yellow', '#CB98A1', '#72C072', '#84B0BF'];
+var colors = ['orange', 'pink', 'yellow', '#CB98A1', '#72C072', '#84B0BF'];
 
 var PatternsView = Backbone.View.extend({
   el: ".patterns",
@@ -33,8 +33,8 @@ var PatternsView = Backbone.View.extend({
     })
   },
   
-  trackPlayer: function(){
-    console.log($('.circle', this.el));
+  trackPlayer: function(ev){
+    console.log(ev.currentTarget);
   }
 
 });
