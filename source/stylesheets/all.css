@@ -55,8 +55,8 @@ h5 {
       color: #666; }
 
 .welcome {
-  -webkit-animation-name: welcome;
-  -webkit-animation-duration: .9s; 
+/*  -webkit-animation-name: welcome;
+  -webkit-animation-duration: .9s; */  
   padding: 6px 0; 
   position: relative;
   width: 80%;
