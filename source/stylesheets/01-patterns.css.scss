@@ -1,3 +1,7 @@
+h2 {
+	padding-bottom: 0px;
+}
+
 .patterns {
 	width: 330px;
 	margin: 0 auto;
@@ -9,9 +13,9 @@
 		float: left;
 		margin: 10px;
 		border: 5px solid white;
-		-webkit-transition : border 500ms ease-out; 
-		-moz-transition : border 500ms ease-out;
-		-o-transition : border 500ms ease-out;
+		-webkit-transition : border 200ms ease-out; 
+		-moz-transition : border 200ms ease-out;
+		-o-transition : border 200ms ease-out;
 	}
 
 	.circle:hover {
@@ -20,5 +24,45 @@
 
 	.circle.show {
 		border: 5px solid black;
+	}
+}
+
+.score {
+	width: 290px;
+	margin: 0 auto 20px;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 12px;
+	border-top: 1px solid #EEE;
+	border-bottom: 1px solid #EEE;
+	padding: 0 15px;
+
+	.prompt {
+		float: left;
+		padding: 4px 10px;
+		border-radius: 6px;
+		cursor: pointer;
+		background-color:#ededed;
+		text-indent:0;
+		border:1px solid #dcdcdc;
+		text-align:center;
+		text-shadow:1px 1px 0px #fff;
+		-moz-box-shadow:inset 0px 1px 0px 0px #fff;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #fff;
+		box-shadow:inset 0px 1px 0px 0px #fff;
+		background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+		background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	}
+
+	.prompt:hover {
+		background: #ccc;
+		-moz-box-shadow:inset 0px 1px 0px 0px #ddd;
+		-webkit-box-shadow:inset 0px 1px 0px 0px #ddd;
+		box-shadow:inset 0px 1px 0px 0px #ddd;
+	}
+
+	.round {
+		float: right;
+		padding: 4px 0;
 	}
 }

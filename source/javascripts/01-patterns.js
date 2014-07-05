@@ -1,5 +1,8 @@
 var currPattern = [];
-var playerScore = 0;
+var playerOrder = [];
+var round = 1;
+var animating = true;
+var prompt = "Ready?";
 var colors = ['orange', 'pink', 'yellow', '#CB98A1', '#72C072', '#84B0BF'];
 
 var PatternsView = Backbone.View.extend({
@@ -10,7 +13,7 @@ var PatternsView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
-    this.createPattern();
+    this.addToPattern();
   },
 
   render: function() {
@@ -20,28 +23,74 @@ var PatternsView = Backbone.View.extend({
     })
   },
   
-  createPattern: function(){
-    // Create the next item in the pattern one at a time
+  addToPattern: function(){
+    // Add one item to the pattern
     var item = colors[Math.floor(Math.random()*colors.length)];
     currPattern.push(item);
   },
   
   animate: function(){
-    _.each(colors, function(v,k){
-      $('.circle').removeClass("show");
-      $("div[data-color='" + v + "']").addClass('show');
+    _.each(currPattern, function(v,k){
+      _.delay(function(){
+        $('.circle').removeClass("show");
+        // console.log($("div[data-color='" + v + "']"));
+        _.delay(function(){
+          $("div[data-color='" + v + "']").addClass('show');
+        }, 200);
+      }, 600*k);
     })
+
+    _.delay(function(){
+      $('.circle').removeClass("show")
+    }, 600*currPattern.length + 600);
+    
+    animating = false;
   },
   
   trackPlayer: function(ev){
-    console.log(ev.currentTarget);
+    var that = this;
+    if (!animating){
+      // check to see if it's the correct option
+      var selectedCircle = $(ev.currentTarget).attr('data-color');
+      var correctCircle = currPattern[playerOrder.length];
+
+      if (selectedCircle == correctCircle){
+        playerOrder.push(correctCircle);
+
+        // is the round over?
+        if (currPattern.length == playerOrder.length){
+          // advance to the next round
+          round++;
+          $('.round').html("Round: " + String(round));
+          playerOrder = [];
+          that.addToPattern();
+          this.animate();
+          console.log(currPattern);
+        } 
+
+      } else {
+        // display final result
+      }
+
+      console.log(selectedCircle, correctCircle);
+    }
   }
 
 });
 
+var Prompt = Backbone.View.extend({
+  el: ".prompt",
+  events: {
+    'click' : 'trackProgress'
+  },
+
+  trackProgress: function(){
+    patterns.animate();
+  }
+});
+
 var patterns = new PatternsView();
-
-
+var prompt = new Prompt();
 
 
 // TO DOs:
