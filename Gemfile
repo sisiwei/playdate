@@ -4,4 +4,6 @@ source 'http://rubygems.org'
 
 gem "middleman"
 gem "middleman-livereload"
-gem 'middleman-s3_sync'
+gem 'unf'
+gem 'fog'
+gem "middleman-sync", "~> 3.0.12"
