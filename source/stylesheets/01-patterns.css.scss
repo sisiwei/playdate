@@ -16,6 +16,7 @@ h2 {
 		-webkit-transition : border 200ms ease-out; 
 		-moz-transition : border 200ms ease-out;
 		-o-transition : border 200ms ease-out;
+		pointer-events: none;
 	}
 
 	.circle:hover {
@@ -23,7 +24,7 @@ h2 {
 	}
 
 	.circle.show {
-		border: 5px solid black;
+		border: 5px solid #888;
 	}
 }
 

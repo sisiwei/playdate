@@ -2,7 +2,7 @@ var currPattern = [];
 var playerOrder = [];
 var round = 1;
 var animating = true;
-var prompt = "Ready?";
+var prompt = "Start";
 var colors = ['orange', 'pink', 'yellow', '#CB98A1', '#72C072', '#84B0BF'];
 
 var PatternsView = Backbone.View.extend({
@@ -50,6 +50,8 @@ var PatternsView = Backbone.View.extend({
   trackPlayer: function(ev){
     var that = this;
     if (!animating){
+      // $('.circle').css('pointer-events', 'auto');
+
       // check to see if it's the correct option
       var selectedCircle = $(ev.currentTarget).attr('data-color');
       var correctCircle = currPattern[playerOrder.length];
@@ -65,6 +67,7 @@ var PatternsView = Backbone.View.extend({
           playerOrder = [];
           that.addToPattern();
           this.animate();
+          animating = true;
           console.log(currPattern);
         } 
 
